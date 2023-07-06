@@ -1,5 +1,5 @@
 import * as React from "react"
-import Wrapper from "../components/wrapper"
+import Wrapper from "../components/Wrapper"
 
 const headingStyles = {
   marginTop: 0,
