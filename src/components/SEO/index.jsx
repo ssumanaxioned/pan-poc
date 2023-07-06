@@ -28,13 +28,13 @@ const SEOComponent = ({
             : `${process.env.GASTBY_WEBSITE_URL}`
           }`}
       />
-      {seoImage?.url && (
-        <meta name='image' property='og:image' content={seoImage?.url} />
+      {seoImage && (
+        <meta name='image' property='og:image' content={seoImage} />
       )}
       <meta name='twitter:card' content='summary_large_image' />
       {title && <meta name='twitter:title' content={title} />}
       {description && <meta name='twitter:description' content={description} />}
-      {seoImage?.url && <meta name='twitter:image' content={seoImage?.url} />}
+      {seoImage && <meta name='twitter:image' content={seoImage} />}
       <meta name='twitter:creator' content='@Shutterstock' />
       <meta name='twitter:site' content='@Shutterstock' />
       <meta name='referrer' content='no-referrer-when-downgrade' />
@@ -42,7 +42,7 @@ const SEOComponent = ({
       <link
         rel='canonical'
         href={`${slug
-            ? `${process.env.GASTBY_WEBSITE_URL}${slug}`
+            ? `${process.env.GASTBY_WEBSITE_URL}${slug}/`
             : `${process.env.GASTBY_WEBSITE_URL}`
           }`}
       />

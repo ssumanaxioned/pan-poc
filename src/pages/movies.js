@@ -8,7 +8,7 @@ export const Head = ({ data }) => {
   const seo = data?.allContentfulSeo.nodes[0];
 
   return (
-    <SEOComponent title={seo.title} description={seo.description} slug="series" />
+    <SEOComponent title={seo?.title} description={seo?.description} slug="movies" />
   )
 }
 
@@ -17,10 +17,11 @@ const Movies = ({ data }) => {
   return (
     <section>
       <Wrapper>
-        <ul className='grid grid-cols-3 gap-5'>
+        <h2 className='my-5 text-4xl font-semibold'>Movies List</h2>
+        <ul className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5'>
           {
             list?.map((item, i) => (
-              <Cards key={i} title={item?.pageName} slug={item?.slug} asset={item?.asset} description={item?.description?.description} />
+              <Cards key={i} title={item?.pageName} slug={`/${item?.slug}/`} asset={item?.asset} description={item?.description?.description} />
             ))
           }
         </ul>
@@ -44,7 +45,7 @@ export const pageQuery = graphql`
         slug
         pageName
         asset {
-          gatsbyImageData(width: 500, placeholder: BLURRED, formats: WEBP)
+          gatsbyImageData(width: 500, height: 350, placeholder: BLURRED, formats: WEBP)
         }
         description {
           description

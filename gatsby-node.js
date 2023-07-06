@@ -13,7 +13,7 @@ exports.createPages = async function ({ actions, graphql }) {
   movies?.data?.allContentfulBlogs?.nodes?.forEach(item => {
     const { slug } = item;
     actions.createPage({
-      path: `movies/${slug}`,
+      path: `movies/${slug}/`,
       component: require.resolve(`./src/templates/blog.js`),
       context: { slug: slug },
     })
@@ -33,8 +33,8 @@ exports.createPages = async function ({ actions, graphql }) {
   series?.data?.allContentfulSeries?.nodes?.forEach(item => {
     const { slug } = item;
     actions.createPage({
-      path: `series/${slug}`,
-      component: require.resolve(`./src/templates/blog.js`),
+      path: `series/${slug}/`,
+      component: require.resolve(`./src/templates/series.js`),
       context: { slug: slug },
     })
   })

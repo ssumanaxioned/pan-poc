@@ -6,8 +6,8 @@ const Cards = ({ title, slug, asset, description }) => {
   return (
     <li className='rounded overflow-hidden shadow-lg'>
       <Link title={title} to={slug}>
-        <figure className='h-56 overflow-hidden'>
-          <GatsbyImage alt={title} image={getImage(asset)} />
+        <figure className='overflow-hidden relative'>
+          <GatsbyImage alt={title} objectFit='cover' image={getImage(asset)} />
         </figure>
         <div className='px-6 py-4'>
           <h3 className='font-bold text-xl mb-2'>{title}</h3>

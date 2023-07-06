@@ -5,18 +5,17 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import SEOComponent from '../components/SEO';
 import Cards from '../components/Cards';
 
-export const Head =({ data, pageContext })=> {
+export const Head = ({ data, pageContext }) => {
   const { slug } = pageContext;
-  const { seo } = data?.allContentfulBlogs?.nodes[0];
+  const { seo } = data?.allContentfulSeries?.nodes[0];
 
   return (
-    <SEOComponent title={seo?.title} seoImage={seo?.asset?.url} description={seo?.description} slug={`movies/${slug}`} />
+    <SEOComponent title={seo?.title} seoImage={seo?.asset?.url} description={seo?.description} slug={`series/${slug}`} />
   )
-
 }
 
-const Blog = ({ data }) => {
-  const { pageName, asset, plot, related } = data?.allContentfulBlogs?.nodes[0];
+const Series = ({ data }) => {
+  const { pageName, asset, plot, related } = data?.allContentfulSeries?.nodes[0];
   return (
     <section>
       <Wrapper>
@@ -24,19 +23,19 @@ const Blog = ({ data }) => {
         <figure className='my-5 overflow-hidden'>
           <GatsbyImage image={getImage(asset)} />
         </figure>
-        <p>{plot?.plot}</p>
+        {plot && <p>{plot?.plot}</p>}
 
         {
-          Array.isArray(related) && related.length > 0 && 
+          Array.isArray(related) && related.length > 0 &&
           <>
-          <h3 className='my-5 text-2xl font-semibold'>Related Movies</h3>
+            <h3 className='my-5 text-2xl font-semibold'>Related Series</h3>
             <ul className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5'>
-            {
-              related.map((item, i) => (
-                <Cards key={i} title={item?.pageName} slug={`/movies/${item?.slug}/`} asset={item?.asset} description={item?.description?.description} />
-              ))
-            }
-          </ul>
+              {
+                related.map((item, i) => (
+                  <Cards key={i} title={item?.pageName} slug={`/series/${item?.slug}/`} asset={item?.asset} description={item?.description?.description} />
+                ))
+              }
+            </ul>
           </>
         }
       </Wrapper>
@@ -44,11 +43,11 @@ const Blog = ({ data }) => {
   )
 }
 
-export default Blog;
+export default Series;
 
 export const pageQuery = graphql`
   query MyQuery($slug: String) {
-    allContentfulBlogs(filter: {node_locale: {eq: "en"}, slug: {eq: $slug}}, limit: 6) {
+    allContentfulSeries(filter: {node_locale: {eq: "en"}, slug: {eq: $slug}}) {
       nodes {
         slug
         pageName
