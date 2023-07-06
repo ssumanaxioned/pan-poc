@@ -11,7 +11,6 @@ const SEOComponent = ({
   return (
     <Head>
       {title ? <title>{title}</title> : <title>{defaultTitle}</title>}
-      {keywords && <meta name='keywords' lang='en' content={keywords} />}
       <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
       <meta name='viewport' content='width=device-width, initial-scale=1' />
       {description && (
@@ -26,8 +25,8 @@ const SEOComponent = ({
       <meta
         property='og:url'
         content={`${slug
-            ? `${process.env.NEXT_PUBLIC_WEBSITE_URL}${slug}`
-            : `${process.env.NEXT_PUBLIC_WEBSITE_URL}`
+            ? `${process.env.GASTBY_WEBSITE_URL}${slug}`
+            : `${process.env.GASTBY_WEBSITE_URL}`
           }`}
       />
       {seoImage?.url && (
@@ -40,17 +39,17 @@ const SEOComponent = ({
       <meta name='twitter:creator' content='@Shutterstock' />
       <meta name='twitter:site' content='@Shutterstock' />
       <meta name='referrer' content='no-referrer-when-downgrade' />
-      {process.env.NEXT_PUBLIC_SEARCH_CONSOLE && (
+      {process.env.GASTBY_SEARCH_CONSOLE && (
         <meta
           name='google-site-verification'
-          content={process.env.NEXT_PUBLIC_SEARCH_CONSOLE}
+          content={process.env.GASTBY_SEARCH_CONSOLE}
         />
       )}
       <link
         rel='canonical'
         href={`${slug
-            ? `${process.env.NEXT_PUBLIC_WEBSITE_URL}${slug}`
-            : `${process.env.NEXT_PUBLIC_WEBSITE_URL}`
+            ? `${process.env.GASTBY_WEBSITE_URL}${slug}`
+            : `${process.env.GASTBY_WEBSITE_URL}`
           }`}
       />
     </Head>

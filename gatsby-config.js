@@ -3,7 +3,7 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `poc`,
+    title: `Demo`,
     siteUrl: `https://www.yourdomain.tld`
   },
   trailingSlash: "ignore",
