@@ -21,7 +21,7 @@ const Movies = ({ data }) => {
         <ul className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5'>
           {
             list?.map((item, i) => (
-              <Cards key={i} title={item?.pageName} slug={`/${item?.slug}/`} asset={item?.asset} description={item?.description?.description} />
+              <Cards key={i} title={item?.pageName} slug={`/movies/${item?.slug}/`} asset={item?.asset} description={item?.description?.description} />
             ))
           }
         </ul>
