@@ -4,7 +4,7 @@
 module.exports = {
   siteMetadata: {
     title: `Demo`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `${process.env.GASTBY_WEBSITE_URL}`
   },
   trailingSlash: "ignore",
   plugins: [{

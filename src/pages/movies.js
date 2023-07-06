@@ -2,6 +2,15 @@ import React from 'react'
 import Cards from '../components/Cards';
 import { graphql } from 'gatsby';
 import Wrapper from '../components/Wrapper';
+import SEOComponent from '../components/SEO';
+
+export const Head = ({ data }) => {
+  const seo = data?.allContentfulSeo.nodes[0];
+
+  return (
+    <SEOComponent title={seo.title} description={seo.description} slug="series" />
+  )
+}
 
 const Movies = ({ data }) => {
   const list = data?.allContentfulBlogs?.nodes;
@@ -24,6 +33,12 @@ export default Movies;
 
 export const pageQuery = graphql`
   query MyQuery {
+    allContentfulSeo(filter: {contentful_id: {eq: "69BbLqrPOeNQxFPInmSDwC"}}) {
+      nodes {
+        title
+        description
+      }
+    }
     allContentfulBlogs(filter: {node_locale: {eq: "en"}}) {
       nodes {
         slug

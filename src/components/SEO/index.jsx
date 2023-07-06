@@ -3,13 +3,12 @@ import React from 'react';
 const SEOComponent = ({
   title,
   seoImage,
-  keywords,
   description,
   slug,
   defaultTitle,
 }) => {
   return (
-    <Head>
+    <>
       {title ? <title>{title}</title> : <title>{defaultTitle}</title>}
       <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
       <meta name='viewport' content='width=device-width, initial-scale=1' />
@@ -39,12 +38,7 @@ const SEOComponent = ({
       <meta name='twitter:creator' content='@Shutterstock' />
       <meta name='twitter:site' content='@Shutterstock' />
       <meta name='referrer' content='no-referrer-when-downgrade' />
-      {process.env.GASTBY_SEARCH_CONSOLE && (
-        <meta
-          name='google-site-verification'
-          content={process.env.GASTBY_SEARCH_CONSOLE}
-        />
-      )}
+      <meta name="google-site-verification" content="6m1O52pRAWZslyMasrD0zdZk2adskOUYm0pk5TC8nto" />
       <link
         rel='canonical'
         href={`${slug
@@ -52,7 +46,7 @@ const SEOComponent = ({
             : `${process.env.GASTBY_WEBSITE_URL}`
           }`}
       />
-    </Head>
+    </>
   );
 };
 
