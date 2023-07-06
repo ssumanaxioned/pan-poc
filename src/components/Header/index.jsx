@@ -12,10 +12,10 @@ const Header = () => {
         </h1>
         <ul className='flex justify-end space-x-5'>
           <li className='hover:underline'>
-            <Link to='/movies'>Movies</Link>
+            <Link to='/movies/'>Movies</Link>
           </li>
           <li className='hover:underline'>
-            <Link to='/series'>Series</Link>
+            <Link to='/series/'>Series</Link>
           </li>
         </ul>
       </div>
