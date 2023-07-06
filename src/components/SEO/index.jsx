@@ -24,8 +24,8 @@ const SEOComponent = ({
       <meta
         property='og:url'
         content={`${slug
-            ? `${process.env.GASTBY_WEBSITE_URL}${slug}`
-            : `${process.env.GASTBY_WEBSITE_URL}`
+            ? `${process.env.GATSBY_SITE_URL}${slug}`
+            : `${process.env.GATSBY_SITE_URL}`
           }`}
       />
       {seoImage && (
@@ -42,8 +42,8 @@ const SEOComponent = ({
       <link
         rel='canonical'
         href={`${slug
-            ? `${process.env.GASTBY_WEBSITE_URL}${slug}/`
-            : `${process.env.GASTBY_WEBSITE_URL}`
+            ? `${process.env.GATSBY_SITE_URL}${slug}/`
+            : `${process.env.GATSBY_SITE_URL}`
           }`}
       />
     </>

@@ -9,7 +9,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Demo`,
-    siteUrl: `${process.env.GASTBY_WEBSITE_URL}`
+    siteUrl: `${process.env.GATSBY_SITE_URL}`
   },
   trailingSlash: "ignore",
   plugins: [{
