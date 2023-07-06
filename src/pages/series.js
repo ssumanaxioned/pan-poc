@@ -1,7 +1,7 @@
 import React from 'react'
 import Wrapper from '../components/wrapper';
 import { graphql } from 'gatsby';
-import Cards from '../components/cards';
+import Cards from '../components/Cards';
 
 const Series = ({ data }) => {
   const { nodes } = data?.allContentfulSeries;

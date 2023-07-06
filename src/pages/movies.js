@@ -1,7 +1,7 @@
 import React from 'react'
-import Wrapper from '../components/wrapper';
-import Cards from '../components/cards';
+import Cards from '../components/Cards';
 import { graphql } from 'gatsby';
+import Wrapper from '../components/wrapper';
 
 const Movies = ({ data }) => {
   const list = data?.allContentfulBlogs?.nodes;
