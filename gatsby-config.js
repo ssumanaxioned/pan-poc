@@ -37,5 +37,13 @@ module.exports = {
       component: require.resolve('./src/components/layout/index.jsx'),
     },
   },
+  {
+    resolve: 'gatsby-plugin-robots-txt',
+    options: {
+      host: `${process.env.GATSBY_SITE_URL}`,
+      sitemap: `${process.env.GATSBY_SITE_URL}sitemap/sitemap-index.xml`,
+      policy: [{userAgent: '*', allow: '/'}],
+    }
+  }
 ]
 };
